@@ -6,13 +6,13 @@ namespace Server
 {
 	class Program
 	{
-		private const string Address = "http://localhost:9099";
+		private const string Address = "net.tcp://localhost:9099";
 
 		static void Main(string[] args)
 		{
 			using (ServiceHost host = new ServiceHost(typeof(MessageService)))
 			{
-				host.AddServiceEndpoint(typeof(IMessageService), new WSDualHttpBinding(), Address);
+				host.AddServiceEndpoint(typeof(IMessageService), new NetTcpBinding(), Address);
 				host.Opening += Host_Opening; 
 				host.Open();
 

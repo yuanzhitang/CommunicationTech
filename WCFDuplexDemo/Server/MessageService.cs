@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 
 namespace Server
 {
@@ -23,7 +24,10 @@ namespace Server
 		{
 			ICallBack callback = OperationContext.Current.GetCallbackChannel<ICallBack>();
 			string sessionid = OperationContext.Current.SessionId;
-			Console.WriteLine("SessionId: {0}, User:{1} is registered", sessionid,callback.UserId());
+			var ms = OperationContext.Current.IncomingMessageProperties;
+			var remp = ms[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+
+			Console.WriteLine($"SessionId: {sessionid}, User:{callback.UserId()}, Address:{remp.Address}, Port:{remp.Port} is registered");
 			OperationContext.Current.Channel.Closing +=
 				delegate
 				{
