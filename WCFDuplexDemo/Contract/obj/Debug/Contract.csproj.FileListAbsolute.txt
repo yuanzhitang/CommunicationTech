@@ -1,0 +1,5 @@
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Contract\bin\Debug\Contract.dll
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Contract\bin\Debug\Contract.pdb
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Contract\obj\Debug\Contract.csproj.CoreCompileInputs.cache
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Contract\obj\Debug\Contract.dll
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Contract\obj\Debug\Contract.pdb

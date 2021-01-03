@@ -1,0 +1,10 @@
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\bin\Debug\Server.exe.config
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\bin\Debug\Server.exe
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\bin\Debug\Server.pdb
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\bin\Debug\Contract.dll
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\bin\Debug\Contract.pdb
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\obj\Debug\Server.csproj.CopyComplete
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\obj\Debug\Server.exe
+C:\Users\TangYM\Downloads\20130913232816\CommunicationTech\WCFDuplexDemo\Server\obj\Debug\Server.pdb
