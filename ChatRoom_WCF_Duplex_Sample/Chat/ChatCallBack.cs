@@ -1,8 +1,8 @@
-﻿using Contract;
+﻿using ChatRoom.Contract;
 using System;
 using System.Threading;
 
-namespace Chat
+namespace ChatRoom.Chat
 {
 	public class ChatCallBack : IChatCallback
 	{

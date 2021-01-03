@@ -1,10 +1,10 @@
-﻿using Contract;
+﻿using ChatRoom.Contract;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 
-namespace Server
+namespace ChatRoom.Server
 {
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Reentrant)]
 	public class MessageService : IMessageService, IDisposable

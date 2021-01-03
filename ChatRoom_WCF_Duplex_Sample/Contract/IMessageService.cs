@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel;
 
-namespace Contract
+namespace ChatRoom.Contract
 {
 	[ServiceContract(CallbackContract = typeof(IChatCallback))]
 	public interface IMessageService

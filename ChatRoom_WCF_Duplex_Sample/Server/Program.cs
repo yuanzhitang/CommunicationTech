@@ -1,8 +1,8 @@
-﻿using Contract;
+﻿using ChatRoom.Contract;
 using System;
 using System.ServiceModel;
 
-namespace Server
+namespace ChatRoom.Server
 {
 	class Program
 	{

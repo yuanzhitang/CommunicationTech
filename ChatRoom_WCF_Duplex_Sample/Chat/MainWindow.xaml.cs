@@ -1,18 +1,17 @@
-﻿using Contract;
+﻿using ChatRoom.Contract;
 using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Chat
+namespace ChatRoom.Chat
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private const string ServerAddress = "net.tcp://localhost:9099";
-		IMessageService client;
+		ChatServerProxy proxy;
 		string CurrentUser;
 
 		public MainWindow()
@@ -40,14 +39,10 @@ namespace Chat
 				chatCallback.OnLogin += MyCallBack_OnLogin;
 				chatCallback.OnLogout += ChatCallback_OnLogout;
 
-				var context = new InstanceContext(chatCallback);
-				NetTcpBinding binding = new NetTcpBinding();
-				var proxy = new DuplexChannelFactory<IMessageService>(context, binding);
+				proxy = ProxyFactory.CreateChatServerProxy(chatCallback);
+				proxy.RegisterClient();
 
-				client = proxy.CreateChannel(new EndpointAddress(ServerAddress));
-				client.RegisterClient();
-
-				this.Dispatcher.BeginInvoke(new Action(()=>
+				this.Dispatcher.BeginInvoke(new Action(() =>
 				{
 					btnSend.IsEnabled = true;
 					btnIn.Content = "Connected";
@@ -75,7 +70,6 @@ namespace Chat
 						   {
 							   txtInfo.Items.Add(user);
 
-
 							   txtMsg.Text += $"User:{user} has joined the chat\r\n";
 							   
 						   });
@@ -86,7 +80,7 @@ namespace Chat
 		{
 			Action action = () =>
 			{
-				txtMsg.Text += $"{user}:{msg} \r\n";
+				txtMsg.Text += $"{DateTime.Now.ToString()}\r\n[{user}]:{msg} \r\n\r\n";
 			};
 
 			Dispatcher.BeginInvoke(action);
@@ -107,7 +101,7 @@ namespace Chat
 			var message = txtSend.Text.Trim();
 			Dispatcher.BeginInvoke(new Action(() =>
 			{
-				client.SendMessage(message, CurrentUser);
+				proxy.SendMessage(message, CurrentUser);
 			}));
 
 			this.Dispatcher.Invoke(() =>

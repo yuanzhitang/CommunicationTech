@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel;
 
-namespace Contract
+namespace ChatRoom.Contract
 {
 	public interface IChatCallback
     {
