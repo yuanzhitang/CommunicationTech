@@ -29,7 +29,9 @@ namespace Chat
 			}
 
 			CurrentUser = user;
-			btnSend.IsEnabled = true;
+			
+			btnIn.IsEnabled = false;
+			btnIn.Content = "Connecting";
 
 			Task.Run(() =>
 			{
@@ -44,6 +46,12 @@ namespace Chat
 
 				client = proxy.CreateChannel(new EndpointAddress(ServerAddress));
 				client.RegisterClient();
+
+				this.Dispatcher.BeginInvoke(new Action(()=>
+				{
+					btnSend.IsEnabled = true;
+					btnIn.Content = "Connected";
+				}));
 			});
 		}
 
