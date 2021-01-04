@@ -7,3 +7,6 @@
 /ChatRoom_WCF_Duplex_Sample/Contract/obj
 /ChatRoom_WCF_Duplex_Sample/Server/bin
 /ChatRoom_WCF_Duplex_Sample/Server/obj
+/ChatRoom_SignalR_Sample/ChatClient/bin
+/ChatRoom_SignalR_Sample/ChatClient/obj
+/ChatRoom_SignalR_Sample/SignalR_Server/bin
