@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Michael\\OpenSource\\CommunicationTech\\ChatRoom_SignalR_Sample\\SignalR_Server\\SignalR_Server.csproj",
-      "projectName": "SignalR_Server",
-      "projectPath": "C:\\Michael\\OpenSource\\CommunicationTech\\ChatRoom_SignalR_Sample\\SignalR_Server\\SignalR_Server.csproj",
+      "projectUniqueName": "C:\\Michael\\OpenSource\\CommunicationTech\\ChatRoom_SignalR_Sample\\SignalR_Server\\ChatRoomSite.csproj",
+      "projectName": "ChatRoomSite",
+      "projectPath": "C:\\Michael\\OpenSource\\CommunicationTech\\ChatRoom_SignalR_Sample\\SignalR_Server\\ChatRoomSite.csproj",
       "packagesPath": "C:\\Users\\TangYM\\.nuget\\packages\\",
       "outputPath": "C:\\Michael\\OpenSource\\CommunicationTech\\ChatRoom_SignalR_Sample\\SignalR_Server\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,75 +1,137 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace SignalRDesktop
+namespace ChatRoom.Chat
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        HubConnection connection;
-        public MainWindow()
-        {
-            InitializeComponent();
+	/// <summary>
+	/// Interaction logic for MainWindow.xaml
+	/// </summary>
+	public partial class MainWindow : Window
+	{
+		HubConnection connection;
+		string CurrentUser;
 
-            connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:44345/chatHub")
-                .Build();
+		public MainWindow()
+		{
+			InitializeComponent();
 
-            connection.On<string>("online", (msg) =>
-            {
-                this.Dispatcher.Invoke(() =>
-                {
-                    txtInfo.Text += msg + "\r\n";
-                });
-            });
+			connection = new HubConnectionBuilder()
+				.WithUrl("https://localhost:44345/chatHub")
+				.Build();
 
-            connection.On<string, string>("ReceiveMessage", (user, msg) =>
-             {
-                 this.Dispatcher.Invoke(() =>
-                 {
-                     txtMsg.Text += $"{user}:{msg} \r\n";
-                 });
-             });
+			connection.On<string>("Login", (msg) =>
+			{
+				MyCallBack_OnLogin(msg);
+			});
 
-            connection.StartAsync();
-        }
+			connection.On<string>("SignOut", (msg) =>
+			 {
+				 ChatCallback_OnLogout(msg);
+			 });
+			connection.On<string, string>("ReceiveMessage", (user, msg) =>
+			{
+				MainWindow_OnSayHello(user, msg);
+			});
 
-        private void btnIn_Click(object sender, RoutedEventArgs e)
-        {
-            string title = $"监工{new Random().Next(1, 99999)}号";
-            Title = title;
+			connection.StartAsync();
+		}
 
-            connection.InvokeAsync("Login", title);
-            btnSend.IsEnabled = true;
-        }
+		private void Connect(object sender, RoutedEventArgs e)
+		{
+			var user = txtUser.Text.Trim();
+			if (string.IsNullOrEmpty(user))
+			{
+				return;
+			}
 
-        private void btnOut_Click(object sender, RoutedEventArgs e)
-        {
-            connection.InvokeAsync("SignOut", Title);
-            connection.StopAsync();
-            this.Close();
-        }
+			CurrentUser = user;
 
-        private void btnSend_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtSend.Text == "") return;
+			btnIn.IsEnabled = false;
+			btnIn.Content = "Connecting";
 
-            connection.InvokeAsync("SendMessage", Title, txtSend.Text);
-        }
-    }
+			Task.Run(() =>
+			{
+				connection.InvokeAsync("Login", user);
+				//btnSend.IsEnabled = true;
+
+
+				//var chatCallback = new ChatCallBack(user);
+				//chatCallback.OnSayHello += MainWindow_OnSayHello;
+				//chatCallback.OnLogin += MyCallBack_OnLogin;
+				//chatCallback.OnLogout += ChatCallback_OnLogout;
+
+				//proxy = ProxyFactory.CreateChatServerProxy(chatCallback);
+				//proxy.RegisterClient();
+
+				this.Dispatcher.BeginInvoke(new Action(() =>
+				{
+					btnSend.IsEnabled = true;
+					btnIn.Content = "Connected";
+				}));
+			});
+		}
+
+		private void ChatCallback_OnLogout(string user)
+		{
+			Action method = new Action(() =>
+			{
+				if (txtInfo.Items.Contains(user))
+				{
+					txtInfo.Items.Remove(user);
+				}
+
+				txtMsg.Text += $"User:{user} is exited\r\n";
+			});
+			this.Dispatcher.BeginInvoke(method);
+		}
+
+		private void MyCallBack_OnLogin(string user)
+		{
+			Action method = new Action(() =>
+						   {
+							   txtInfo.Items.Add(user);
+
+							   txtMsg.Text += $"User:{user} has joined the chat\r\n";
+
+						   });
+			this.Dispatcher.BeginInvoke(method);
+		}
+
+		private void MainWindow_OnSayHello(string user, string msg)
+		{
+			Action action = () =>
+			{
+				txtMsg.Text += $"{DateTime.Now.ToString()}\r\n[{user}]:{msg} \r\n\r\n";
+			};
+
+			Dispatcher.BeginInvoke(action);
+		}
+
+		private void btnOut_Click(object sender, RoutedEventArgs e)
+		{
+			connection.InvokeAsync("SignOut", CurrentUser);
+			this.Close();
+		}
+
+		private void btnSend_Click(object sender, RoutedEventArgs e)
+		{
+			if (txtSend.Text == "")
+			{
+				return;
+			}
+
+			var message = txtSend.Text.Trim();
+			Dispatcher.BeginInvoke(new Action(() =>
+			{
+				connection.InvokeAsync("SendMessage", CurrentUser, message);
+			}));
+
+			this.Dispatcher.Invoke(() =>
+			{
+				txtSend.Text = string.Empty;
+			});
+		}
+	}
 }

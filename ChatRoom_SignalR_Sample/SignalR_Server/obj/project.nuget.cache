@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uIAHsRRqtOsoe34sJzPt4W2Ksvs5LQnjoeRcN1n0ZwJ1hR7HvPKoLOmfbZk//RTDKm6mC+gCRr6jrvhi4etzwA==",
+  "dgSpecHash": "KZm2W2Y3vaOogH0xj5nicwWan5g69yW+a3+zBTvC6Q66wSrEa7pUO+fWfk6WKljuW5/o0ChxMIMNhXEywb1R+A==",
   "success": true,
-  "projectFilePath": "C:\\Michael\\OpenSource\\CommunicationTech\\ChatRoom_SignalR_Sample\\SignalR_Server\\SignalR_Server.csproj",
+  "projectFilePath": "C:\\Michael\\OpenSource\\CommunicationTech\\ChatRoom_SignalR_Sample\\SignalR_Server\\ChatRoomSite.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

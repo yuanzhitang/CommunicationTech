@@ -38,4 +38,3 @@ C:\Michael\OpenSource\CommunicationTech\ChatRoom_SignalR_Sample\SignalR_Server\o
 C:\Michael\OpenSource\CommunicationTech\ChatRoom_SignalR_Sample\SignalR_Server\obj\Debug\net5.0\SignalR_Server.pdb
 C:\Michael\OpenSource\CommunicationTech\ChatRoom_SignalR_Sample\SignalR_Server\obj\Debug\net5.0\SignalR_Server.genruntimeconfig.cache
 C:\Michael\OpenSource\CommunicationTech\ChatRoom_SignalR_Sample\SignalR_Server\obj\Debug\net5.0\SignalR_Server.csproj.CopyComplete
-C:\Michael\OpenSource\CommunicationTech\ChatRoom_SignalR_Sample\SignalR_Server\obj\Debug\net5.0\SignalR_Server.csprojAssemblyReference.cache

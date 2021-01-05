@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatClient", "ChatClient\ChatClient.csproj", "{64C0C667-0EF3-4417-9357-EFEE87405B9D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_Server", "SignalR_Server\SignalR_Server.csproj", "{215E3D11-2170-4580-AB2D-13E802F14ABD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoomSite", "SignalR_Server\ChatRoomSite.csproj", "{215E3D11-2170-4580-AB2D-13E802F14ABD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
