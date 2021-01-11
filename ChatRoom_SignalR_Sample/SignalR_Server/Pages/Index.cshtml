@@ -1,33 +1,41 @@
 ﻿@page
-<div class="container">
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-2">User</div>
-        <div class="col-4"><input type="text" id="userInput" /></div>
-    </div>
-    <div class="row">
-        <div class="col-2">Message</div>
-        <div class="col-4"><input type="text" id="messageInput" /></div>
-    </div>
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-6">
-            <input type="button" id="sendButton" value="Send Message" />
-        </div>
-        <div class="col-6">
-            <input type="button" id="sendButton1" value="Send Message" />
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <hr />
-    </div>
-</div>
-<div class="row">
-    <div class="col-6" style="border:solid 1px; color:black;width:100%;height:300px; background-color:cadetblue; color:white;overflow:auto">
-        <ul id="messagesList"></ul>
-    </div>
-</div>
-<script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/chat.js"></script>
+	<div class="row">
+		<div class="col-6">
+			<label>Messages:</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6" style="border:solid 2px; border-color:cornflowerblue; width:100%;height:300px; background-color:white;overflow:auto">
+			<ul id="messagesList"></ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<hr />
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">&nbsp;</div>
+		<div class="row">
+			<div class="col-2">User</div>
+			<div class="col-4"><input type="text" id="userInput" /></div>
+		</div>
+		<div class="row">
+			<div class="col-2">Message</div>
+			<div class="col-4"><input type="text" id="messageInput" /></div>
+		</div>
+		<div class="row">&nbsp;</div>
+		<div class="row">
+			<div class="col-6">
+				<input type="button" id="sendButton" value="Send Message" />
+			</div>
+			<div class="col-6">
+				<input type="button" id="sendButton1" value="Send System Notification" />
+			</div>
+		</div>
+	</div>
+
+
+	<script src="~/js/signalr/dist/browser/signalr.js"></script>
+	<script src="~/js/chat.js"></script>
